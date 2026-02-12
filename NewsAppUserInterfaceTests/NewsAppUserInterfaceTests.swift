@@ -23,3 +23,22 @@ class when_app_is_launched: XCTestCase {
         XCTAssertEqual(3, newsList.cells.count)
     }
 }
+
+class when_user_taps_on_a_news: XCTestCase {
+    
+    let app = XCUIApplication()
+    
+    override func setUp() {
+        app.launchEnvironment =  ["ENV": "TEST", "FIXTURE": "news"]
+        continueAfterFailure = false
+        app.launch()
+    }
+    
+    func test_should_display_news_for_the_selected_news() {
+        
+        app.staticTexts["Coca-Cola is about to report earnings. Here's what to expect - CNBC"].tap()
+        app.buttons["Top Headlines"].tap()
+        
+    }
+    
+}
