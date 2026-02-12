@@ -8,9 +8,41 @@
 import SwiftUI
 
 struct NewsHeadlinesView: View {
+    
+    @State private var vm = ArticleListViewModel(networkService: Webservice())
+    
     var body: some View {
-        ZStack {
-            BackgroundView()
+        NavigationStack {
+            ZStack {
+                BackgroundView()
+                
+                List(vm.articles) { articleModel in
+                    NavigationLink {
+                        // Navigate to new details
+                    } label: {
+                        // show new rows
+                    }
+
+                }
+                .accessibilityIdentifier("newsList")
+                .scrollContentBackground(.hidden)
+                .background(Color.clear)
+                
+                if vm.isLoading {
+                    LoadingView()
+                }
+            }
+            .alert("Error", isPresented: .constant(vm.errorMessage != nil)) {
+                Button("OK") {
+                    vm.errorMessage = nil
+                }
+            } message: {
+                Text(vm.errorMessage ?? "")
+            }
+            .navigationTitle("Top Headlines")
+            .refreshable {
+                vm.populateAllNews()
+            }
         }
     }
 }
