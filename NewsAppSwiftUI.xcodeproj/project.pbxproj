@@ -80,6 +80,11 @@
 			path = NewsAppUserInterfaceTests;
 			sourceTree = "<group>";
 		};
+		232647FC2F3E2365005B51E8 /* assets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = assets;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +115,7 @@
 		2326467C2F3E0144005B51E8 = {
 			isa = PBXGroup;
 			children = (
+				232647FC2F3E2365005B51E8 /* assets */,
 				232646872F3E0144005B51E8 /* NewsAppSwiftUI */,
 				232647202F3E0DBC005B51E8 /* NewsAppUnitTests */,
 				2326473D2F3E0FE8005B51E8 /* NewsAppUserInterfaceTests */,
@@ -144,6 +150,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				232646872F3E0144005B51E8 /* NewsAppSwiftUI */,
+				232647FC2F3E2365005B51E8 /* assets */,
 			);
 			name = NewsAppSwiftUI;
 			packageProductDependencies = (
