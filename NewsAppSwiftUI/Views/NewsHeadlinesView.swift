@@ -20,7 +20,7 @@ struct NewsHeadlinesView: View {
                     NavigationLink {
                         // Navigate to new details
                     } label: {
-                        // show new rows
+                        ArticleRowView(article: articleModel)
                     }
 
                 }
