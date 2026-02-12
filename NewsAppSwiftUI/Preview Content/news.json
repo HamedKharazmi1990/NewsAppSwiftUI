@@ -1,0 +1,47 @@
+{
+"status": "ok",
+"totalResults": 3,
+"articles": [
+{
+"source": {
+"id": null,
+"name": "CNBC"
+},
+"author": "Amelia Lucas",
+"title": "Coca-Cola is about to report earnings. Here's what to expect - CNBC",
+"description": "Like rival PepsiCo, Coke has seen demand for its drinks fall as budget-conscious shoppers try to save more on their grocery bills.",
+"url": "https://www.cnbc.com/2026/02/10/coca-cola-ko-q4-2025-earnings.html",
+"urlToImage": "https://image.cnbcfm.com/api/v1/image/108263212-1770642346999-gettyimages-2246706941-251113_sv_costco_119.jpeg?v=1770642365&w=1920&h=1080",
+"publishedAt": "2026-02-10T11:35:02Z",
+"content": "Coca-Cola on Tuesday reported mixed quarterly results, although demand for its drinks in North America and Latin America is beginning to show signs of improvement.
+Looking ahead to 2026, the company… [+2427 chars]"
+},
+{
+"source": {
+"id": "politico",
+"name": "Politico"
+},
+"author": "Kyle Cheney",
+"title": "How the Trump administration skirts — and defies — court rulings on ICE detentions - Politico",
+"description": "A POLITICO review of hundreds of cases brought by ICE detainees shows a pattern of noncompliance that has frustrated judges across the country.",
+"url": null,
+"urlToImage": "https://www.politico.com/dims4/default/resize/1200/quality/90/format/jpg?url=https%3A%2F%2Fstatic.politico.com%2F2b%2F3b%2F12c71e954173b3c72d75d7331835%2Fmain-cheney-ice-alt.jpg",
+"publishedAt": "2026-02-10T10:00:00Z",
+"content": "Other judges have raised similar alarms. U.S. District Judge John Gerrard, an Obama appointee based in Nebraska who is helping handle a backlog of Minnesota cases scolded the Trump administration for… [+7424 chars]"
+},
+{
+"source": {
+"id": "abc-news",
+"name": "ABC News"
+},
+"author": "ABC News",
+"title": "Howard Lutnick, Trump's commerce secretary, faces calls to resign over Epstein ties - ABC News",
+"description": null,
+"url": "https://abcnews.go.com/Politics/howard-lutnick-trumps-commerce-secretary-faces-calls-resign/story?id\\u003d130002715",
+"urlToImage": null,
+"publishedAt": "2026-02-09T21:44:48Z",
+"content": null
+}
+]
+}
+
