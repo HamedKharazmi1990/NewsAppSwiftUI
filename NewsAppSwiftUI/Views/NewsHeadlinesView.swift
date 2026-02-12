@@ -18,7 +18,7 @@ struct NewsHeadlinesView: View {
                 
                 List(vm.articles) { articleModel in
                     NavigationLink {
-                        // Navigate to new details
+                        NewsDetailScreen(urlString: articleModel.url)
                     } label: {
                         ArticleRowView(article: articleModel)
                     }
