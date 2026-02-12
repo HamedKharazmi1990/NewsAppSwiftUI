@@ -41,4 +41,11 @@ class when_user_taps_on_a_news: XCTestCase {
         
     }
     
+    func test_should_display_error_message_for_the_selected_news_with_no_url() {
+        
+        app.staticTexts["How the Trump administration skirts — and defies — court rulings on ICE detentions - Politico"].tap()
+        XCTAssertTrue(app.staticTexts["Invalid link"].firstMatch.exists)
+        
+    }
+    
 }
