@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewsHeadlinesView: View {
     
-    @State private var vm = ArticleListViewModel(networkService: Webservice())
+    @State private var vm = ArticleListViewModel(networkService: NetworkServiceFactory.create(ArticleList.self))
     
     var body: some View {
         NavigationStack {
