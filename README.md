@@ -15,7 +15,7 @@ The project follows the **MVVM architecture**, uses the new **`@Observable` macr
 - 📰 Fetch latest news from **News API**
 - 🔎 Display articles in a clean, responsive list
 - 📄 Article details view
-- ⚡ Async network requests
+- ⚡ Async await network requests
 - 🧱 MVVM architecture
 - 👀 State management using **`@Observable` macro**
 - 🧪 Unit testing with mocking
