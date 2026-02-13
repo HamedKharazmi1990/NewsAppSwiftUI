@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 @Observable
 class ArticleListViewModel {
     
@@ -17,7 +18,9 @@ class ArticleListViewModel {
     
     init(networkService: NetworkProtocol) {
         self.networkService = networkService
-        self.populateAllNews()
+        Task {
+            await self.populateAllNews()
+        }
     }
     
     private var apiKey: String {
@@ -31,24 +34,22 @@ class ArticleListViewModel {
         return key
     }
     
-    func populateAllNews() {
-        isLoading = true
-        errorMessage = nil
-        
-        networkService.request(url: Constants.Urls.newsByApiKey(apiKey: apiKey)) { (result: Result<ArticleList, NetworkError>)  in
-            switch result {
-            case .success(let articleResponse):
-                DispatchQueue.main.async {
-                    self.articles = articleResponse.articles.map(ArticleViewModel.init)
-                }
-            case .failure(let error):
-                self.errorMessage = error.message
+    func populateAllNews() async {
+            isLoading = true
+            errorMessage = nil
+            defer { isLoading = false }
+
+            do {
+                let response: ArticleList = try await networkService.request(
+                    url: Constants.Urls.newsByApiKey(apiKey: apiKey)
+                )
+                articles = response.articles.map(ArticleViewModel.init)
+            } catch let err as NetworkError {
+                errorMessage = err.message
+            } catch {
+                errorMessage = error.localizedDescription
             }
-            self.isLoading = false
         }
-        
-    }
-    
 }
 
 struct ArticleViewModel: Identifiable {

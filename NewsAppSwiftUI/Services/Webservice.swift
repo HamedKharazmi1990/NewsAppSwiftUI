@@ -31,40 +31,34 @@ enum NetworkError: Error {
 }
 
 final class Webservice: NetworkProtocol {
-
-    func request<T: Decodable>(
-        url: URL,
-        completion: @escaping (Result<T, NetworkError>) -> Void
-    ) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-
-            if let error = error {
-                completion(.failure(.transport(error)))
-                return
-            }
-
-            guard let http = response as? HTTPURLResponse else {
-                completion(.failure(.invalidResponse))
-                return
-            }
-
-            guard (200...299).contains(http.statusCode) else {
-                completion(.failure(.badRequest(statusCode: http.statusCode)))
-                return
-            }
-
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
-            }
-
+    
+    func request<T: Decodable>(url: URL) async throws -> T {
             do {
-                let decoded = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(decoded))
-            } catch {
-                completion(.failure(.decoding(error)))
-            }
+                let (data, response) = try await URLSession.shared.data(from: url)
 
-        }.resume()
-    }
+                guard let http = response as? HTTPURLResponse else {
+                    throw NetworkError.invalidResponse
+                }
+
+                guard (200...299).contains(http.statusCode) else {
+                    throw NetworkError.badRequest(statusCode: http.statusCode)
+                }
+
+                guard !data.isEmpty else {
+                    throw NetworkError.noData
+                }
+
+                do {
+                    return try JSONDecoder().decode(T.self, from: data)
+                } catch {
+                    throw NetworkError.decoding(error)
+                }
+
+            } catch let error as NetworkError {
+                throw error
+            } catch {
+                throw NetworkError.transport(error)
+            }
+        }
+
 }

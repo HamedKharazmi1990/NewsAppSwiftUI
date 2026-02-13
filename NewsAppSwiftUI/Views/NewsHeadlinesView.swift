@@ -41,7 +41,7 @@ struct NewsHeadlinesView: View {
             }
             .navigationTitle("Top Headlines")
             .refreshable {
-                vm.populateAllNews()
+                await vm.populateAllNews()
             }
         }
     }
