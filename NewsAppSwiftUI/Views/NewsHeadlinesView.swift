@@ -21,6 +21,9 @@ struct NewsHeadlinesView: View {
                         NewsDetailScreen(urlString: articleModel.url)
                     } label: {
                         ArticleRowView(article: articleModel)
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel(articleModel.title)
+                            .accessibilityIdentifier("newsCell_\(articleModel.id)")
                     }
 
                 }

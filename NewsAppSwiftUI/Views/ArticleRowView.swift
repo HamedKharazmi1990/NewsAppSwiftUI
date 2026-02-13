@@ -39,11 +39,13 @@ struct ArticleRowView: View {
                 Text(article.title)
                     .font(.headline)
                     .foregroundStyle(.primary)
+                    .accessibilityIdentifier("titleLabel")
                 
                 Text(article.description)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
+                    .accessibilityIdentifier("descriptionLabel")
             }
         }
     }
